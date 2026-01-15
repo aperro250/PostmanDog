@@ -1,5 +1,6 @@
 import os
 import json
+import clear
 
 # Store the path one level up for future creation of "config.json"
 base_dir = os.path.dirname(os.path.abspath(os.path.join(__file__, '..')))
@@ -67,9 +68,13 @@ def createConfig ():
             print ("You have introduced the incorect number, please try again")
 
 def telegram_config ():
+    clear.clear()
     print("Telegram_config")
+    input()
 
 def discord_config ():
+    clear.clear()
     print("Discord_confid")
-
+    input()
+    
 createConfig()
