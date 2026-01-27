@@ -46,7 +46,6 @@ config_model = {
 	},
 }
 
-print(config_path)
 
 # Create a config.json file if it don't exists
 if not os.path.exists(config_path):
@@ -59,6 +58,7 @@ if not os.path.exists(config_path):
 with open(config_path, "r", encoding="utf-8") as f:
 	config = json.load(f)
 
+# print (config["Discord"]["channel1"]["name"])
 # Update the config. Writes the local variable "config" into the config.json
 def update_config():
 	with open(config_path, "w", encoding="utf-8", ensure_ascii=False) as f:
@@ -92,15 +92,15 @@ def createConfig():
 def telegram_config():
 	clear.clear()
 
-	telegram = config.get("Telegram")
+#	telegram = config.get("Telegram")
 	print("Telegram_config")
 
 	print("""
 	What you want to do?
 	1: Add a new group
 	""")
-
-	if telegram.get("group1", {}).get("id", "") != "":
+	#telegram.get("group1", {}).get("id", "")
+	if  config["Telegram"]["group1"]["id"] != "":
 		print("""
 		2: Modife an excisting Telegram group
 		3: Add a new channel
@@ -117,7 +117,43 @@ def telegram_config():
 	else:
 		print("You have introduced the incorect number, please try again")
 
+# Add new Telegram group
 def add_telegram_group():
+	
+	# Create a local of the function variable for the group number chosen
+	private group = ""
+	
+	#if config["Telegram"]["group1"]["id"] == "":
+		
+	#	group = 1
+	#else:
+		
+	while True:
+		group++
+			
+		try:
+			if config["Telegram"][f"group{group}"]["id"] != "":
+				pass
+			else:					
+				break
+		
+		except:
+		
+			break
+				
+		print (f"The new group will be the slot: {group}")
+		
+		set_Tgroup_id( group, input("Please, enter the id of the group: "))
+		
+		set_Tgroup_name( group , input("Please, give a name for this channel: "))
+		
+		print (f"Created a new group in slot {group} with name {config['Telegam'][f'group{group}']['name']}")
+		
+		
+def set_Tgroup_id (group, id):
+	input()
+	
+def set_Tgroup_name (group, name):
 	input()
 
 def modife_telegram_group():
