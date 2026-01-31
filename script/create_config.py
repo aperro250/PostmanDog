@@ -105,6 +105,7 @@ def telegram_config():
         print("""
         2: Modife an excisting Telegram group
         3: Add a new channel
+        
         """)
 
     choice = input()
@@ -143,10 +144,27 @@ def add_telegram_group():
         
 
 
-
+# Modife an excisting Telegram group
 def modife_telegram_group():
-   
+   a = True
+   while a:
+        clear.clear()
 
+        print ("""
+            What you wanna do?
+            
+            1: Modife a group name
+            2: Modife a group id
+            3: Return
+            
+            """)
+
+        choice = input ()
+
+            if choice == 1 || 2:
+            print()
+            
+            elif choice ==
 def add_telegram_channel():
     input()
 
