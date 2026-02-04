@@ -17,33 +17,52 @@ config_model = {
     "TelegramToken": "",
 
     "Discord": {
-        "channel1": {
 
+        "chanels_cuantity": 1,
+        "channels": [
+
+            {
+                "channel_name": "",
+                "channel_id", "",
+                "conectedWith": ""
+            },
             # Custom name for a chanel1
-            "name": "",
+            #"name": "",
             # The channel id
-            "id": "",
+            #"id": "",
             # The list with whos channel are this channel conected.
-            # The sidtaxis is Dx for Discord conections and Tx for Telegram 
-conections
-            "conectedWith": ""
-        },
+            # The sidtaxis is Dx for Discord conections and Tx for Telegram conections
+            #"conectedWith": ""
+        ],
     },
     "Telegram": {
-        "group1": {
+
+        "groups_cuantity": 1,
+        "groups": [
             # The telegram group id
-            "name": "",
-            "id": "",
+            #"name": "",
+            #"id": "",
+            {
+                "group_name": "",
+                "group_id": "",
 
-            "channel1": {
+                "channels_cuantity": 1,
+                "channels": [
 
+                {
+
+                    "channel_name": "",
+                    "channel_id": "",
+                    "conectedWith": ""
+                },
                 # The custom name for a channel
-                "name": "",
-                "id": "",
-                "conectedWith": ""
-
-            },
-        },
+                #"name": "",
+                #"id": "",
+                #"conectedWith": ""
+    
+                ],
+            }
+        ],
     },
 }
 

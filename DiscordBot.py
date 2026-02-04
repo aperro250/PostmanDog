@@ -9,10 +9,21 @@ with open("config.json", "r", encoding="utf-8") as f:
     config = json.load(f)
 # Создание и загрузка переменных
 DiscordToken = config["Discord_config"]["TOKEN"]
-pve = config["Discord_config"]["pve_channel_id"]
-pvp = config["Discord_config"]["pvp_channel_id"]
-ava = config["Discord_config"]["ava_channel_id"]
-anouns = config["Discord_config"]["anouncement_channel_id"]
+#pve = config["Discord_config"]["pve_channel_id"]
+#pvp = config["Discord_config"]["pvp_channel_id"]
+#ava = config["Discord_config"]["ava_channel_id"]
+#anouns = config["Discord_config"]["anouncement_channel_id"]
+discord = config.get("Discord")
+channels_cuantity = discord["channels_cuantity", 0]
+
+# Create a list for the channels id to listen
+listen_channels_id = []
+listen_channels_names = []
+
+# Meton to add a stored in config id channels to listen
+for i in discord ():
+    if i.get("id"):
+
 
 # Создание папки для хранения текстов
 texts = "texts"
