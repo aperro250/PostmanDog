@@ -23,7 +23,7 @@ config_model = {
 
             {
                 "channel_name": "",
-                "channel_id", "",
+                "channel_id": "",
                 "conectedWith": ""
             },
             # Custom name for a chanel1
@@ -142,7 +142,7 @@ def telegram_config():
 def add_telegram_group():
     
     # Store the first new group slot available
-    private group = get_telegram_last_group () + 1
+    group = get_telegram_last_group () + 1
     
     #if config["Telegram"]["group1"]["id"] == "":
         
@@ -155,11 +155,9 @@ def add_telegram_group():
         
     set_Tgroup_id( group, input("Please, enter the id of the group: "))
         
-    set_Tgroup_name( group , input("Please, give a name for this channel: 
-"))
+    set_Tgroup_name( group , input("Please, give a name for this channel: "))
         
-    print (f"Created a new group in slot {group} with name 
-{config['Telegam'][f'group{group}']['name']}")
+    print (f"Created a new group in slot {group} with name {config['Telegam'][f'group{group}']['name']}")
         
 
 
@@ -180,7 +178,7 @@ def modife_telegram_group():
 
         choice = input ()
 
-            if choice == 1 || 2:
+            if choice == 1 or 2:
             print()
             
             elif choice ==
