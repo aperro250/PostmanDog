@@ -17,4 +17,4 @@ while True:
      print("Starting the bot's")
      # Starts to run the Telegram and Discord bots parallely
 
-	  
+      

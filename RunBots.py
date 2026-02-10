@@ -15,10 +15,10 @@ if os.path.exists(config_path):
     # Starts to run the Telegram and Discord bots parallely
     tg_thread = threading.Thread(target=run_telegram)
     ds_thread = threading.Thread(target=run_discord)
-	  
+      
     tg_thread.start()
     ds_thread.start()
-	  
+      
     tg_thread.join()
     ds_thread.join()
   # config.json don't excist or can not be found

@@ -163,8 +163,8 @@ def add_telegram_group():
 
 # Modife an excisting Telegram group
 def modife_telegram_group():
-   a = True
-   while a:
+    a = True
+    while a:
         clear.clear()
 
         print ("""
@@ -178,21 +178,24 @@ def modife_telegram_group():
 
         choice = input ()
 
-            if choice == 1 or 2:
+        if choice == 1 or 2:
             print()
             
-            elif choice ==
+        elif choice == 3:
+            a = False
+        else:
+            print ("Error. Please type one of he fallowing choices")
 def add_telegram_channel():
     input()
 
 # Returns the last new telegram group slot number 
 def get_telegram_last_group ():
-     group = 1
-     while True:
+    group = 1
+    while True:
             
         try:
             if config["Telegram"][f"group{group}"]["id"] != "":
-                group++
+                group+= 1
             else:                    
                 break
         
@@ -209,7 +212,7 @@ def set_Tgroup_id (group, id):
 
 # Set Telegram group new name. Recies a group number and the new name
 def set_Tgroup_name (group, name):
-    config ["Telegram"][f"group{group}}"]["name"] = name
+    config ["Telegram"][f"group{group}"]["name"] = name
     update_config()
 
 # ...................... DISCORD ........................

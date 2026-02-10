@@ -17,13 +17,9 @@ discord = config.get("Discord")
 channels_cuantity = discord["channels_cuantity", 0]
 
 # Create a list for the channels id to listen
-listen_channels_id = []
-listen_channels_names = []
-
-# Meton to add a stored in config id channels to listen
-for i in discord ():
-    if i.get("id"):
-
+channels = config["Discord"]["channels"]
+#listen_channels_id = []
+#listen_channels_names = 
 
 # Создание папки для хранения текстов
 texts = "texts"
