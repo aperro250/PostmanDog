@@ -18,8 +18,8 @@ channels_cuantity = discord["channels_cuantity", 0]
 
 # Create a list for the channels id to listen
 channels = config["Discord"]["channels"]
-#listen_channels_id = []
-#listen_channels_names = 
+listen_channels_id = []
+#listen_channels_names = []
 
 # Создание папки для хранения текстов
 texts = "texts"
@@ -57,17 +57,26 @@ async def on_ready():
 # Метод "Прослушки сообщений"
 @bot.event
 async def on_message(message):
-    if str(message.channel.id) in [pve, pvp, ava, anouns] and message.author != bot.user:
+    if str(message.channel.id) in [listen_channels_id] and message.author != bot.user:
         channel = "None"
+        #print(message.channel.id)
+
+        # if str(message.channel.id) == pve:
+        #     channel = "pve"
+        # elif str(message.channel.id) == pvp:
+        #     channel = "pvp"
+        # elif str(message.channel.id) == ava:
+        #     channel = "ava"
+        # elif str(message.channel.id) == anouns:
+        #     channel = "anouns"
+
         print(message.channel.id)
-        if str(message.channel.id) == pve:
-            channel = "pve"
-        elif str(message.channel.id) == pvp:
-            channel = "pvp"
-        elif str(message.channel.id) == ava:
-            channel = "ava"
-        elif str(message.channel.id) == anouns:
-            channel = "anouns"
+        id_position = None
+        for i in len(listen_channels_id):
+            if str(message.channel.id) == listen_channels_id[i]:
+                id_position = i
+            else:
+                pass
 
         formatted_date = message.created_at.strftime("%d.%m.%Y, %H:%M UTC")  # например: 26.06.2025, 18:31
         save_inf(message.id, channel, message.author.display_name, formatted_date, message.content)
@@ -78,4 +87,4 @@ async def on_message(message):
 
 # Метод запуска бота
 def run_discord() -> None :
-    bot.run(DiscordToken)
+    bot.run(int(config["Discord_Token"]))
