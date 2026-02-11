@@ -19,7 +19,7 @@ channels_cuantity = discord["channels_cuantity", 0]
 # Create a list for the channels id to listen
 channels = config["Discord"]["channels"]
 listen_channels_id = []
-#listen_channels_names = []
+listen_channels_name = []
 
 # Создание папки для хранения текстов
 texts = "texts"
@@ -70,7 +70,10 @@ async def on_message(message):
         # elif str(message.channel.id) == anouns:
         #     channel = "anouns"
 
+
         print(message.channel.id)
+
+        # Obtain the chanels position in the local list to interact later
         id_position = None
         for i in len(listen_channels_id):
             if str(message.channel.id) == listen_channels_id[i]:
@@ -80,7 +83,7 @@ async def on_message(message):
 
         formatted_date = message.created_at.strftime("%d.%m.%Y, %H:%M UTC")  # например: 26.06.2025, 18:31
         save_inf(message.id, channel, message.author.display_name, formatted_date, message.content)
-        print(f'💾 Сохранено сообщение ID {message.id} от {message.author} с канала {channel}')
+        print(f'💾 Сохранено сообщение ID {message.id} от {message.author} с канала {channel} ({listen_channels_name[id_position]})')
         print('🔄 Попытка отправки в Телеграм')
         telegram_topic_id = TelegramBot.get_topic_id(channel)
         TelegramBot.send_telegram_message(telegram_topic_id, f"{message.author.display_name} {formatted_date}.json")
